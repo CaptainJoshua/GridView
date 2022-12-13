@@ -8,6 +8,8 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,11 +31,13 @@ public class MainActivity extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(MainActivity.this, text.get(i), Toast.LENGTH_SHORT).show();
+                Snackbar.make(view, text.get(i), Snackbar.LENGTH_INDEFINITE).setAction("Close", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {}
+                }).show();
             }
         });
     }
-
 
     private void fillArray() {
         text.add("Baguio's Night Market");
@@ -55,13 +59,12 @@ public class MainActivity extends AppCompatActivity {
         image.add(R.drawable.cebu);
         image.add(R.drawable.chocohills);
         image.add(R.drawable.intramuros);
+        image.add(R.drawable.mayon);
         image.add(R.drawable.palawan);
         image.add(R.drawable.pinatubo);
         image.add(R.drawable.riceterraces);
-        image.add(R.drawable.mayon);
         image.add(R.drawable.taal);
         image.add(R.drawable.upd);
         image.add(R.drawable.vigan);
     }
-
 }
